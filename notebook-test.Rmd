@@ -1,0 +1,19 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook for testing the workflow of branching and merging.
+
+Here we search GBIF for records of _Lycaena xanthoides_ and display the 
+results of the query.
+
+```{r}
+library(spocc)
+species <- "Lycaena xanthoides"
+gbif_query <- occ(query = species, 
+                  from = "gbif",
+                  limit = 10)
+occ_df <- occ2df(gbif_query)
+print(occ_df)
+```
